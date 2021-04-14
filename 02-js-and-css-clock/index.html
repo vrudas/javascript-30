@@ -73,8 +73,10 @@
     const HAND_INITIAL_OFFSET = 90;
     const CLOCK_CIRCLE_DEGREES = 360;
     const SECONDS_DEGREES_IN_CLOCK = 60;
+    const MINUTES_DEGREES_IN_CLOCK = 60;
 
     const secondHand = document.querySelector('.second-hand');
+    const minuteHand = document.querySelector('.min-hand');
 
     function setDate() {
         const now = new Date();
@@ -82,6 +84,10 @@
         const seconds = now.getSeconds();
         const secondsDegrees = ((seconds / SECONDS_DEGREES_IN_CLOCK) * CLOCK_CIRCLE_DEGREES) + HAND_INITIAL_OFFSET;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        const minutes = now.getMinutes();
+        const minutesDegrees = ((minutes / MINUTES_DEGREES_IN_CLOCK) * CLOCK_CIRCLE_DEGREES) + HAND_INITIAL_OFFSET;
+        minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
     }
 
     setInterval(setDate, 1000);
