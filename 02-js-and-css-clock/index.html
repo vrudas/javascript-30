@@ -70,6 +70,7 @@
 </style>
 
 <script>
+    const HAND_INITIAL_OFFSET = 90;
     const CLOCK_CIRCLE_DEGREES = 360;
     const SECONDS_DEGREES_IN_CLOCK = 60;
 
@@ -79,7 +80,7 @@
         const now = new Date();
 
         const seconds = now.getSeconds();
-        const secondsDegrees = (seconds / SECONDS_DEGREES_IN_CLOCK) * CLOCK_CIRCLE_DEGREES;
+        const secondsDegrees = ((seconds / SECONDS_DEGREES_IN_CLOCK) * CLOCK_CIRCLE_DEGREES) + HAND_INITIAL_OFFSET;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
     }
 
