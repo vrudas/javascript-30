@@ -84,6 +84,10 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const sortedByLastName = inventors.sort((inventor, nextInventor) => {
+        return inventor.last > nextInventor.last ? 1 : -1;
+    });
+    console.table(sortedByLastName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
