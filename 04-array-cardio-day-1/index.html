@@ -84,8 +84,10 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-    const sortedByLastName = inventors.sort((inventor, nextInventor) => {
-        return inventor.last > nextInventor.last ? 1 : -1;
+    const sortedByLastName = people.sort((person, nextPerson) => {
+        let personLastName = person.split(' ')[1];
+        let nextPersonLastName = nextPerson.split(' ')[1];
+        return personLastName > nextPersonLastName ? 1 : -1;
     });
     console.table(sortedByLastName);
 
