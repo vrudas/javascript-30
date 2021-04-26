@@ -99,6 +99,19 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+    const countsOfTransportInstances = data.reduce(
+        (counts, transport) => {
+            if (!counts[transport]) {
+                counts[transport] = 0;
+            }
+
+            counts[transport]++;
+
+            return counts;
+        },
+        {}
+    )
+    console.table(countsOfTransportInstances);
 
 </script>
 </body>
