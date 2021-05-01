@@ -37,10 +37,21 @@
         const wordToMatch = this.value;
         const matchedPlaces = findMatches(wordToMatch, places);
 
+        const wordToMatchRegex = RegExp(wordToMatch, 'gi');
+
         suggestions.innerHTML = matchedPlaces.map(place => {
+            const cityNameWithHighlight = place.city.replace(
+                wordToMatchRegex,
+                `<span class="hl">${wordToMatch}</span>`
+            );
+            const stateNameWithHighlight = place.state.replace(
+                wordToMatchRegex,
+                `<span class="hl">${wordToMatch}</span>`
+            );
+
             return `
                 <li>
-                    <span class="name">${place.city}, ${place.state}</span>
+                    <span class="name">${cityNameWithHighlight}, ${stateNameWithHighlight}</span>
                     <span class="population">${place.population}</span>
                 </li>
             `
