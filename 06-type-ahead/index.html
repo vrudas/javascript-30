@@ -32,6 +32,26 @@
             return city.match(wordRegex) || state.match(wordRegex);
         });
     }
+
+    function displayMatches() {
+        const wordToMatch = this.value;
+        const matchedPlaces = findMatches(wordToMatch, places);
+
+        suggestions.innerHTML = matchedPlaces.map(place => {
+            return `
+                <li>
+                    <span class="name">${place.city}, ${place.state}</span>
+                    <span class="population">${place.population}</span>
+                </li>
+            `
+        }).join('');
+    }
+
+    const searchInput = document.querySelector('.search');
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
+
+    const suggestions = document.querySelector('.suggestions');
 </script>
 </body>
 </html>
