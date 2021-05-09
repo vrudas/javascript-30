@@ -26,6 +26,11 @@
         if (!isDrawing) return;
 
         console.log(event);
+
+        context.beginPath();
+        context.moveTo(lastX, lastY);
+        context.lineTo(event.offsetX, event.offsetY);
+        context.stroke();
     }
 
     canvas.addEventListener('mousemove', draw);
