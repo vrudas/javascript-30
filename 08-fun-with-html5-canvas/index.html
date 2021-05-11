@@ -16,16 +16,21 @@
     context.strokeStyle = '#BADA55';
     context.lineJoin = 'round';
     context.lineCap = 'round';
+    context.lineWidth = 100;
 
     let isDrawing = false;
 
     let lastX = 0;
     let lastY = 0;
 
+    let hue = 0;
+
     function draw(event) {
         if (!isDrawing) return;
 
         console.log(event);
+
+        context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
         context.beginPath();
         context.moveTo(lastX, lastY);
@@ -33,6 +38,12 @@
         context.stroke();
 
         [lastX, lastY] = [event.offsetX, event.offsetY];
+
+        hue++;
+
+        if (hue >= 360) {
+            hue = 0;
+        }
     }
 
     canvas.addEventListener('mousemove', draw);
