@@ -24,6 +24,7 @@
     let lastY = 0;
 
     let hue = 0;
+    let direction = true;
 
     function draw(event) {
         if (!isDrawing) return;
@@ -40,9 +41,17 @@
         [lastX, lastY] = [event.offsetX, event.offsetY];
 
         hue++;
-
         if (hue >= 360) {
             hue = 0;
+        }
+
+        if (context.lineWidth >= 100 || context.lineWidth <= 1) {
+            direction = !direction;
+        }
+        if (direction) {
+            context.lineWidth++;
+        } else {
+            context.lineWidth--;
         }
     }
 
