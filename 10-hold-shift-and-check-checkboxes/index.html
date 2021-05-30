@@ -96,6 +96,40 @@ When a user clicks a checkbox, holds Shift, and then clicks another checkbox a f
 </div>
 
 <script>
+
+    const inbox = document.querySelector('.inbox');
+
+    let isShiftPressed = false;
+
+    document.addEventListener('keydown', function (event) {
+        if (event.shiftKey) {
+            isShiftPressed = true;
+        }
+    });
+
+    document.addEventListener('keyup', () => {
+        isShiftPressed = false;
+    });
+
+    const checkBoxes = [...inbox.querySelectorAll('.item>input')];
+    checkBoxes.forEach((checkBox, index) => {
+        checkBox.setAttribute('data-index', index)
+    });
+
+    checkBoxes.forEach((checkBox) => {
+        checkBox.addEventListener('input', () => {
+            if (isShiftPressed) {
+                const checkedCheckBox = checkBoxes.find(it => it.checked);
+
+                const checkedCheckBoxIndex = checkedCheckBox.getAttribute('data-index');
+                const currentCheckBoxIndex = checkBox.getAttribute('data-index');
+
+                checkBoxes.slice(checkedCheckBoxIndex, currentCheckBoxIndex)
+                    .forEach(it => it.checked = true);
+            }
+        });
+    });
+
 </script>
 </body>
 </html>
