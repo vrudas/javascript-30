@@ -119,13 +119,19 @@ When a user clicks a checkbox, holds Shift, and then clicks another checkbox a f
     checkBoxes.forEach((checkBox) => {
         checkBox.addEventListener('input', () => {
             if (isShiftPressed) {
-                const checkedCheckBox = checkBoxes.find(it => it.checked);
-
-                const checkedCheckBoxIndex = checkedCheckBox.getAttribute('data-index');
                 const currentCheckBoxIndex = checkBox.getAttribute('data-index');
 
-                checkBoxes.slice(checkedCheckBoxIndex, currentCheckBoxIndex)
-                    .forEach(it => it.checked = true);
+                const checkedCheckBox = checkBoxes.find(it => {
+                    const index = it.getAttribute('data-index');
+                    return it.checked && index !== currentCheckBoxIndex;
+                });
+
+                const checkedCheckBoxIndex = checkedCheckBox.getAttribute('data-index');
+
+                let start = Math.min(currentCheckBoxIndex, checkedCheckBoxIndex);
+                let end = Math.max(currentCheckBoxIndex, checkedCheckBoxIndex);
+
+                checkBoxes.slice(start, end).forEach(it => it.checked = true);
             }
         });
     });
