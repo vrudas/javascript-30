@@ -96,9 +96,6 @@ When a user clicks a checkbox, holds Shift, and then clicks another checkbox a f
 </div>
 
 <script>
-
-    const inbox = document.querySelector('.inbox');
-
     let isShiftPressed = false;
 
     document.addEventListener('keydown', function (event) {
@@ -111,7 +108,7 @@ When a user clicks a checkbox, holds Shift, and then clicks another checkbox a f
         isShiftPressed = false;
     });
 
-    const checkBoxes = [...inbox.querySelectorAll('.item>input')];
+    const checkBoxes = [...document.querySelectorAll('.inbox input[type=checkbox]')];
     checkBoxes.forEach((checkBox, index) => {
         checkBox.setAttribute('data-index', index)
     });
