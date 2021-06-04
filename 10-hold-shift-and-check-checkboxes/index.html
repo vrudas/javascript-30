@@ -119,7 +119,24 @@ When a user clicks a checkbox, holds Shift, and then clicks another checkbox a f
         lastCheckedCheckBox = checkBox;
     }
 
-    checkBoxes.forEach((checkBox) => checkBox.addEventListener('click', handleCheckBoxClick));
+    function handleCheckBoxClickLesson(event) {
+        let inBetween = false;
+        if (event.shiftKey && this.checked) {
+            checkBoxes.forEach(checkBox => {
+                if (checkBox === this || checkBox === lastCheckedCheckBox) {
+                    inBetween = !inBetween;
+                }
+
+                if (inBetween) {
+                    checkBox.checked = true;
+                }
+            });
+        }
+
+        lastCheckedCheckBox = this;
+    }
+
+    checkBoxes.forEach((checkBox) => checkBox.addEventListener('click', handleCheckBoxClickLesson));
 
 </script>
 </body>
