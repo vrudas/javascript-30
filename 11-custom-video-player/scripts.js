@@ -16,9 +16,18 @@ function togglePlay() {
     }
 }
 
+function updateToggleButton() {
+    if (video.paused) {
+        toggle.textContent = '▶';
+    } else {
+        toggle.textContent = '❚ ❚';
+    }
+}
 
 /* Event listeners */
 
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateToggleButton);
+video.addEventListener('pause', updateToggleButton);
 
 toggle.addEventListener('click', togglePlay);
