@@ -24,6 +24,10 @@ function updateToggleButton() {
     }
 }
 
+function skipPlayback() {
+    video.currentTime += parseFloat(this.dataset.skip);
+}
+
 /* Event listeners */
 
 video.addEventListener('click', togglePlay);
@@ -31,3 +35,5 @@ video.addEventListener('play', updateToggleButton);
 video.addEventListener('pause', updateToggleButton);
 
 toggle.addEventListener('click', togglePlay);
+
+skipButtons.forEach(skipButton => skipButton.addEventListener('click', skipPlayback));
