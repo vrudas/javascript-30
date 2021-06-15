@@ -5,6 +5,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
+const fullScreenButton = player.querySelector('.player__button.fullscreen');
 
 /* Player functions */
 
@@ -66,3 +67,5 @@ progress.addEventListener('mousemove', (event) => {
         scrub(event);
     }
 });
+
+fullScreenButton.addEventListener('click', () => player.requestFullscreen());
