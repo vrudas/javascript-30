@@ -158,6 +158,14 @@
         };
     }
 
+    const sliderImages = document.querySelectorAll('.slide-in');
+
+    function checkSlide(event) {
+        console.count(event);
+    }
+
+    window.addEventListener('scroll', debounce(checkSlide));
+
 </script>
 
 <style>
