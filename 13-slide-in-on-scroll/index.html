@@ -165,7 +165,9 @@
             const scrollPosition = window.scrollY + window.innerHeight;
             const slideInImageHeight = sliderImage.height / 2;
             const slideInAt = scrollPosition - slideInImageHeight;
-            console.log(slideInAt);
+
+            const imageBottom = sliderImage.offsetTop + sliderImage.height;
+
         })
     }
 
