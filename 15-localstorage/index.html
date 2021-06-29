@@ -48,7 +48,19 @@
 
         items.push(item);
 
+        populateItemsList(items, itemsList);
+
         this.reset();
+    }
+
+    function populateItemsList(items = [], itemsList) {
+        itemsList.innerHTML = items.map((item) => {
+            return `
+                <li>
+                    <label for="">${item.text}</label>
+                </li>
+            `;
+        }).join('');
     }
 
     addItems.addEventListener('submit', addItem);
