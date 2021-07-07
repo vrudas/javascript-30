@@ -50,6 +50,8 @@
 
         populateItemsList(items, itemsList);
 
+        localStorage.setItem('items', JSON.stringify(items));
+
         this.reset();
     }
 
