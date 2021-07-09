@@ -67,7 +67,21 @@
         }).join('');
     }
 
+    function toggleDone(event) {
+        if (!event.target.matches('input')) {
+            return;
+        }
+        const item = event.target;
+        const itemIndex = item.dataset.index;
+
+        items[itemIndex].done = !items[itemIndex].done;
+
+        localStorage.setItem('items', JSON.stringify(items));
+        populateItemsList(items, itemsList);
+    }
+
     addItems.addEventListener('submit', addItem);
+    itemsList.addEventListener('click', toggleDone);
 
     populateItemsList(items, itemsList);
 </script>
@@ -75,4 +89,7 @@
 
 </body>
 </html>
+
+<!--TODO add clear state button-->
+<!--TODO update only one checkbox instead all -->
 
