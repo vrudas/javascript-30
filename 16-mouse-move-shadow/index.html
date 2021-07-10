@@ -40,7 +40,9 @@
     const text = hero.querySelector('h1');
 
     function shadow(event) {
-        console.log(event);
+        const {offsetWidth: width, offsetHeight: height} = hero;
+        let {offsetX: x, offsetY: y} = event;
+
     }
 
     hero.addEventListener('mousemove', shadow);
