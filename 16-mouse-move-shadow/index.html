@@ -43,6 +43,12 @@
         const {offsetWidth: width, offsetHeight: height} = hero;
         let {offsetX: x, offsetY: y} = event;
 
+        if (this !== event.target) {
+            x += event.target.offsetLeft;
+            y += event.target.offsetTop;
+        }
+
+        console.log(x, y);
     }
 
     hero.addEventListener('mousemove', shadow);
