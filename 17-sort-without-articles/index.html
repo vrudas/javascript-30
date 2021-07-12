@@ -45,12 +45,28 @@
 <ul id="bands"></ul>
 
 <script>
+    const OMIT_KEYWORDS_REGEXP = RegExp('The |An |A |');
+
     const bands = [
         'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything',
         'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here',
         'An Old Dog'
     ];
 
+    const bandsList = document.querySelector('#bands');
+
+    function bandComparator(band, nextBand) {
+        const cleanBand = band.replace(OMIT_KEYWORDS_REGEXP, '');
+        const cleanNextBand = nextBand.replace(OMIT_KEYWORDS_REGEXP, '');
+
+        return cleanBand > cleanNextBand ? 1 : -1;
+    }
+
+    const bandsItemsHtml = bands.sort(bandComparator)
+        .map(band => `<li>${band}</li>`)
+        .join('');
+
+    bandsList.innerHTML = bandsItemsHtml;
 
 </script>
 
