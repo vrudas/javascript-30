@@ -45,7 +45,7 @@
 <ul id="bands"></ul>
 
 <script>
-    const OMIT_KEYWORDS_REGEXP = RegExp('The |An |A |');
+    const OMIT_KEYWORDS_REGEXP = /^(the |an |a )/i;
 
     const bands = [
         'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything',
@@ -55,11 +55,12 @@
 
     const bandsList = document.querySelector('#bands');
 
-    function bandComparator(band, nextBand) {
-        const cleanBand = band.replace(OMIT_KEYWORDS_REGEXP, '');
-        const cleanNextBand = nextBand.replace(OMIT_KEYWORDS_REGEXP, '');
+    function cleanBand(band) {
+        return band.replace(OMIT_KEYWORDS_REGEXP, '').trim();
+    }
 
-        return cleanBand > cleanNextBand ? 1 : -1;
+    function bandComparator(band, nextBand) {
+        return cleanBand(band) > cleanBand(nextBand) ? 1 : -1;
     }
 
     const bandsItemsHtml = bands.sort(bandComparator)
