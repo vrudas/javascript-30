@@ -184,7 +184,17 @@
 <script>
     const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
 
-    const secondsValues = timeNodes.map(timeNode => timeNode.dataset.time);
+    const totalSeconds = timeNodes
+        .map(timeNode => timeNode.dataset.time)
+        .map(timeCode => {
+            const [minutes, seconds] = timeCode
+                .split(':')
+                .map(parseFloat);
+                
+            return (minutes * 60) + seconds;
+        })
+        .reduce((total, seconds) => total + seconds);
+    
 
 </script>
 </body>
