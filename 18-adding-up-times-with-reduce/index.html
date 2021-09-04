@@ -194,6 +194,16 @@
             return (minutes * 60) + seconds;
         })
         .reduce((total, seconds) => total + seconds);
+        
+    let secondsLeft = totalSeconds;
+    const hours = Math.floor(secondsLeft / 3600);
+    secondsLeft = secondsLeft % 3600;
+    
+    const mins = Math.floor(secondsLeft / 60);
+    
+    secondsLeft = secondsLefs % 60;
+    
+    console.log(hours, mins, secondsLeft);
 
 </script>
 </body>
