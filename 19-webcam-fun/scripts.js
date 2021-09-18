@@ -9,6 +9,9 @@ function getVideo() {
         .then(localMediaStream => {
             video.srcObject = localMediaStream;
             video.play();
+        })
+        .catch(error => {
+            console.log('Access to camera wa denied', error);
         });
 }
 
