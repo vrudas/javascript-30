@@ -15,4 +15,12 @@ function getVideo() {
         });
 }
 
+function paintToCanvas() {
+    let videoWidth = video.videoWidth;
+    let videoHeight = video.videoHeight;
+
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+}
+
 getVideo();
