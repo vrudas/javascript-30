@@ -74,6 +74,7 @@
 
     navigator.geolocation.watchPosition((data) => {
        speed.textContent = data.coords.speed.toString();
+       arrow.style.transform = `rotate(${data.coords.heading}deg)`;
     });
 </script>
 </body>
