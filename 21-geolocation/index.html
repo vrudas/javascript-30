@@ -72,10 +72,16 @@
     const arrow = document.querySelector('.arrow');
     const speed = document.querySelector('.speed-value');
 
-    navigator.geolocation.watchPosition((data) => {
-       speed.textContent = data.coords.speed.toString();
-       arrow.style.transform = `rotate(${data.coords.heading}deg)`;
-    });
+    navigator.geolocation.watchPosition(
+        (data) => {
+            speed.textContent = data.coords.speed.toString();
+            arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+        },
+        (error) => {
+            console.error(error);
+            alert('Access to device location is required to correct work of app');
+        }
+    );
 </script>
 </body>
 </html>
