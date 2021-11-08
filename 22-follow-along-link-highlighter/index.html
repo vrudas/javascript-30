@@ -36,6 +36,23 @@
     const highlightElement = document.createElement('span');
     highlightElement.classList.add('highlight');
     document.body.append(highlightElement);
+
+    function highlightLink() {
+        const linkCoordinates = this.getBoundingClientRect();
+
+        const coordinates = {
+            width: linkCoordinates.width,
+            height: linkCoordinates.height,
+            top: linkCoordinates.top + window.scrollY,
+            left: linkCoordinates.left + window.scrollX
+        };
+
+        highlightElement.style.width = `${coordinates.width}px`;
+        highlightElement.style.height = `${coordinates.height}px`;
+        highlightElement.style.transform = `translate(${coordinates.left}px, ${coordinates.top}px)`;
+    }
+
+    linksToHighlight.forEach(link => link.addEventListener('mouseenter', highlightLink));
 </script>
 </body>
 </html>
