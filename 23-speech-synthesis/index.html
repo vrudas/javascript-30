@@ -53,7 +53,13 @@
             .join('');
     }
 
+    function setVoice() {
+        let selectedVoiceName = this.value;
+        msg.voice = voices.find(voice => voice.name === selectedVoiceName);
+    }
+
     speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    voicesDropdown.addEventListener('change', setVoice);
 
 </script>
 
