@@ -56,6 +56,14 @@
     function setVoice() {
         let selectedVoiceName = this.value;
         msg.voice = voices.find(voice => voice.name === selectedVoiceName);
+        toggle();
+    }
+
+    function toggle(startOver = true) {
+        speechSynthesis.cancel();
+        if (startOver) {
+            speechSynthesis.speak(msg);
+        }
     }
 
     speechSynthesis.addEventListener('voiceschanged', populateVoices);
