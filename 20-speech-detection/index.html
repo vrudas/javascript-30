@@ -63,12 +63,11 @@
     words.appendChild(paragraph);
 
     recognition.addEventListener('result', event => {
-        const transcript = Array.from(event.results)
+        paragraph.textContent = Array.from(event.results)
             .map(result => result[0])
             .map(result => result.transcript)
             .join('');
 
-        paragraph.textContent = transcript;
         if (event.results[0].isFinal) {
             paragraph = document.createElement('p');
             words.appendChild(paragraph);
