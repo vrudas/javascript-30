@@ -49,7 +49,8 @@
         voices = this.getVoices();
 
         voicesDropdown.innerHTML = voices
-            .map((voice) => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+            .filter(voice => voice.lang.includes('en'))
+            .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
             .join('');
     }
 
