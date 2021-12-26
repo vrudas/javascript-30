@@ -237,7 +237,11 @@
         listItemsClasses.add('trigger-enter');
 
         setTimeout(
-            () => listItemsClasses.add('trigger-enter-active'),
+            () => {
+                if (this.classList.contains('trigger-enter')) {
+                    listItemsClasses.add('trigger-enter-active');
+                }
+            },
             150
         );
 
