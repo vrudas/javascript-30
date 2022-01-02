@@ -41,9 +41,10 @@
     let startX;
     let scrollLeft;
 
-    slider.addEventListener('mousedown', () => {
+    slider.addEventListener('mousedown', (event) => {
         isDown = false;
         slider.classList.add('active');
+        startX = event.pageX - slider.offsetLeft;
     });
 
     slider.addEventListener('mouseleave', () => {
