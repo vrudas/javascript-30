@@ -66,8 +66,8 @@
         event.preventDefault();
 
         const x = event.pageX - slider.offsetLeft;
-        const walk = x - startX;
-        slider.scrollLeft = walk;
+        const walk = (x - startX) * 3;
+        slider.scrollLeft = scrollLeft - walk;
     });
 
 </script>
