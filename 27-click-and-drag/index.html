@@ -45,6 +45,7 @@
         isDown = false;
         slider.classList.add('active');
         startX = event.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
     });
 
     slider.addEventListener('mouseleave', () => {
@@ -57,10 +58,16 @@
         slider.classList.remove('active');
     });
 
-    slider.addEventListener('mousemove', () => {
+    slider.addEventListener('mousemove', (event) => {
         if (!isDown) {
             return;
         }
+
+        event.preventDefault();
+
+        const x = event.pageX - slider.offsetLeft;
+        const walk = x - startX;
+        slider.scrollLeft = walk;
     });
 
 </script>
