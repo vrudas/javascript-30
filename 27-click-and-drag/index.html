@@ -42,7 +42,7 @@
     let scrollLeft;
 
     slider.addEventListener('mousedown', (event) => {
-        isDown = false;
+        isDown = true;
         slider.classList.add('active');
         startX = event.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
