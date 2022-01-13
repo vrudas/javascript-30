@@ -26,9 +26,12 @@
     speed.addEventListener('mousemove', function(event) {
         const y = event.pageY - this.offsetTop;
         const percent = y / this.offsetHeight;
+
         const height = Math.round(percent * 100) + '%';
+        const playbackRate = percent * (MAX_VIDEO_SPEED - MIN_VIDEO_SPEED) + MIN_VIDEO_SPEED;
 
         bar.style.height = height;
+        bar.textContent = playbackRate.toFixed(2) + 'x';
     });
 
 </script>
