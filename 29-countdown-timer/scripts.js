@@ -1,5 +1,7 @@
 const MILLISECONDS_IN_SECOND = 1000;
 
+const timerDisplay = document.querySelector('.display__time-left');
+
 let countdown;
 
 function timer(seconds) {
@@ -23,4 +25,6 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
+
+    timerDisplay.textContent = `${minutes}:${remainderSeconds}`;
 }
