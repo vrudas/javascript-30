@@ -3,6 +3,8 @@ const MILLISECONDS_IN_SECOND = 1000;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 
+const buttons = document.querySelectorAll('[data-time]');
+
 let countdown;
 
 function timer(seconds) {
@@ -45,3 +47,9 @@ function displayEndTime(timestamp) {
 
     endTime.textContent = `Be Back At ${hourToDisplay}:${minutesToDisplay}`;
 }
+
+function startTimer() {
+    console.log(this.dataset.time);
+}
+
+buttons.forEach(button => button.addEventListener('click', startTimer));
