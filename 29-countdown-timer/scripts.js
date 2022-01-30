@@ -8,6 +8,8 @@ const buttons = document.querySelectorAll('[data-time]');
 let countdown;
 
 function timer(seconds) {
+    clearInterval(countdown);
+
     const now = Date.now();
     const then = (now + seconds) * MILLISECONDS_IN_SECOND;
 
