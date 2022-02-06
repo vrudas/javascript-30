@@ -83,7 +83,10 @@
     }
 
     function bonk(event) {
-        console.log(event);
+        if (!event.isTrusted) {
+            console.error('Click event is cheated');
+            return;
+        }
     }
 
     moles.forEach(mole => mole.addEventListener('click', bonk));
