@@ -82,6 +82,12 @@
         setTimeout(() => timeUp = true, 10000);
     }
 
+    function bonk(event) {
+        console.log(event);
+    }
+
+    moles.forEach(mole => mole.addEventListener('click', bonk));
+
 </script>
 </body>
 </html>
