@@ -41,6 +41,8 @@
 
     let timeUp = false;
 
+    let score = 0;
+
     function randomTime(minMillis, maxMillis) {
         return Math.round(Math.random() * (maxMillis - minMillis) + minMillis);
     }
@@ -75,7 +77,8 @@
     }
 
     function startGame() {
-        scoreBoard.textContent = 0;
+        score = 0;
+        scoreBoard.textContent = score;
         timeUp = false;
         peep();
 
@@ -87,6 +90,12 @@
             console.error('Click event is cheated');
             return;
         }
+
+        this.classList.remove('up');
+
+        score++;
+
+        scoreBoard.textContent = score;
     }
 
     moles.forEach(mole => mole.addEventListener('click', bonk));
