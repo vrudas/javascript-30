@@ -33,6 +33,8 @@
 </div>
 
 <script>
+    const GAMEPLAY_TIME = 10000;
+
     const holes = document.querySelectorAll('.hole');
     const scoreBoard = document.querySelector('.score');
     const moles = document.querySelectorAll('.mole');
@@ -82,7 +84,7 @@
         timeUp = false;
         peep();
 
-        setTimeout(() => timeUp = true, 10000);
+        setTimeout(() => timeUp = true, GAMEPLAY_TIME);
     }
 
     function bonk(event) {
