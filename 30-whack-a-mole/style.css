@@ -74,3 +74,12 @@ h2 {
 .hole.up .mole {
     top: 0;
 }
+
+button {
+    background: #262323;
+    border: none;
+    padding: 1rem 3rem;
+    color: #ffc600;
+    font-family: 'Amatic SC', cursive;
+    font-size: 3rem;
+}
